@@ -23,6 +23,10 @@ public class StockTrader {
 				prices[i] = in.nextDouble();
 			}
 		}
+		public static String monthName(int month){
+			String[] monthNames = {"zero","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+			return monthNames[month];
+		}
         // TODO: create the three arrays, each with n elements
 
         // TODO: call loadData, then printData
