@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class StockTrader {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(new File("tiny.txt"));
+        Scanner in = new Scanner(new File("rising.txt"));
         String symbol = in.next();
         int n = in.nextInt();
     
@@ -15,8 +15,8 @@ public class StockTrader {
         double[] prices = new double [n];
         
 		loadData (in, years, months, prices);
-		System.out.println( symbol + " lowest: $" + prices[indexOfLowest(prices)] + " " + monthName(indexOfLowest(prices)+1) + " " + years[indexOfLowest(prices)]);
-		System.out.println( symbol + " highest: $" + prices[indexOfHighest(prices)] + " " + monthName(indexOfHighest(prices)+1) + " " + years[indexOfHighest(prices)]);
+		System.out.println( symbol + " lowest: $" + prices[indexOfLowest(prices)] + " " + monthName(months[indexOfLowest(prices)+1]) + " " + years[indexOfLowest(prices)]);
+		System.out.println( symbol + " highest: $" + prices[indexOfHighest(prices)] + " " + monthName(months[indexOfHighest(prices)]+1) + " " + years[indexOfHighest(prices)]);
        
 		}
 		public static void loadData(Scanner in, int[] years, int[] months, double[] prices){
