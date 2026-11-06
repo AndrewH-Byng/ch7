@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class StockTrader {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(new File("rising.txt"));
+        Scanner in = new Scanner(new File("sp500_1990_2025.txt"));
         String symbol = in.next();
         int n = in.nextInt();
     
@@ -15,18 +15,18 @@ public class StockTrader {
         double[] prices = new double [n];
         
 		loadData (in, years, months, prices);
-		System.out.println( symbol + " lowest: $" + prices[indexOfLowest(prices)] + " " + monthName(months[indexOfLowest(prices)+1]) + " " + years[indexOfLowest(prices)]);
-		System.out.println( symbol + " highest: $" + prices[indexOfHighest(prices)] + " " + monthName(months[indexOfHighest(prices)]+1) + " " + years[indexOfHighest(prices)]);
+		System.out.println( symbol + " lowest: $" + prices[indexOfLowest(prices)] + " " + monthName(months[indexOfLowest(prices)]) + " " + years[indexOfLowest(prices)]);
+		System.out.println( symbol + " highest: $" + prices[indexOfHighest(prices)] + " " + monthName(months[indexOfHighest(prices)]) + " " + years[indexOfHighest(prices)]);
        
 		}
-		public static void loadData(Scanner in, int[] years, int[] months, double[] prices){
+		public static void loadData(Scanner in, int[] years, int[] months, double[] prices){ 
 			for (int i = 0; i < years.length; i++){
 				years[i] = in.nextInt();
 				months[i] = in.nextInt();
 				prices[i] = in.nextDouble();
 				
 			}
-		printData(years,months,prices);
+			printData(years,months,prices);
 			
 		}
 		public static String monthName(int month){
@@ -36,10 +36,10 @@ public class StockTrader {
 	
 		public static void printData(int[] years, int[] months, double[] prices){
 			for (int i = 0; i < months.length; i++){
-				System.out.print(monthName(i+1) + " " + years[i]+ ": $");
+				System.out.print(monthName(months[i]) + " " + years[i]+ ": $");
 				System.out.printf("%.2f%n", prices[i]);
+			}
 		}
-	}
 		
 		public static int indexOfLowest(double[] prices){
 			int lowest = 0;
